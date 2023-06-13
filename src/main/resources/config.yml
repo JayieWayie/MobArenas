@@ -18,8 +18,9 @@ Plugin:
   Leaderboard: 3
   # Number of waves per game.
   Waves: 10
-  # Multiples this number by whatever wave it is and spreads them across a certain amount of time.
-  MobsPerWave: '10'
+  # Multiples this number by whatever wave it is, spawns mobs this many times per wave.
+  # 30 seconds per spawn wave.
+  SpawnsPerWave: '2'
   # Tokens per kill.
   Tokens: '1'
   # Commands cooldown. In seconds.
@@ -75,7 +76,7 @@ Kits:
           - '&7'
           - '&aThis will protect you soldier!'
           - '&7'
-        # Must be Minecraft 1.19 default names of enchantments. You can find these @
+        # Must be Minecraft 1.20 default names of enchantments. You can find these @
         # https://www.digminecraft.com/lists/enchantment_list_pc.php
         # Key: ENCHANTMENT:LEVEL
         Enchantments:
