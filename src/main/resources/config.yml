@@ -1,0 +1,140 @@
+#
+#
+#
+#       MobArenas - Event plugin for play.pixelpunchers.net
+#            Check out PlayGames @ https://playgam.es/
+#                   Add me on discord @ qwml
+#                         Coded by Jay
+#
+#
+#
+
+Plugin:
+  # Used in ALL system messages.
+  Prefix: '&8[&cMobArenas&8]'
+  # Key: m=minutes s=seconds.
+  StartTimer: 5m
+  # Show top 3 players once the game ends.
+  Leaderboard: 3
+  # Number of waves per game.
+  Waves: 10
+  # Multiples this number by whatever wave it is and spreads them across a certain amount of time.
+  MobsPerWave: '10'
+  # Tokens per kill.
+  Tokens: '1'
+  # Commands cooldown. In seconds.
+  Cooldown: '30'
+
+Structures:
+  # Server spawn point. This will be used to tp users back after the game ends.
+  Spawn:
+    World: ''
+    X: ''
+    Y: ''
+    Z: ''
+  Arena:
+    World: ''
+    # Positions must be the opposite corners of the arena.
+    # this is used to tp the user to a random generated spawn point of the arena between the 2 values.
+    Position1:
+      X: ''
+      Y: ''
+      Z: ''
+    Position2:
+      X: ''
+      Y: ''
+      Z: ''
+
+Messages:
+  Start: '&aThe game is starting in &2%mobarenas_startcountdown%!'
+  Ended:
+    - '&cGame has come to an end.'
+    - '&7'
+    - '&aLeaders:'
+    - '&2%mobarenas_leadernames% &ckilled &2%mobarenas_leaderkills% &cmobs'
+  NextWave: '&cWave %mobarenas_wave% is starting! (%mobarenas_amountofmobs% mobs to kill)'
+  PlayerDeath-System: '&c%player% has been slain by %mobtype%.'
+  PlayerDeath-User: '&cYOU DIED! &7Now spectating.'
+  OpenShop: '&aYou have opened the token shop. Current tokens: %mobarenas_tokens%.'
+
+Kits:
+  # Name of kit.
+  Scout:
+    # Any potion effects that are given to the user using the kit.
+    Effects:
+      - 'SPEED:1'
+    Items:
+      # Integrate this +1 per item.
+      '0':
+        # Type of item given.
+        Type: 'IRON_HELMET'
+        # Displayname of the item.
+        Name: '&aScout Helmet'
+        # Lore will always be a list.
+        Lore:
+          - '&7'
+          - '&aThis will protect you soldier!'
+          - '&7'
+        # Must be Minecraft 1.19 default names of enchantments. You can find these @
+        # https://www.digminecraft.com/lists/enchantment_list_pc.php
+        # Key: ENCHANTMENT:LEVEL
+        Enchantments:
+          - 'PROTECTION:3'
+          - 'UNBREAKING:3'
+      '1':
+        Type: 'IRON_CHESTPLATE'
+        Name: '&aScout Chestpiece'
+        Lore:
+          - '&7'
+          - '&aThis will protect you soldier!'
+          - '&7'
+        Enchantments:
+          - 'PROTECTION:3'
+          - 'UNBREAKING:3'
+      '2':
+        Type: 'IRON_LEGGINGS'
+        Name: '&aScout Pants'
+        Lore:
+          - '&7'
+          - '&aThis will protect you soldier!'
+          - '&7'
+        Enchantments:
+          - 'PROTECTION:3'
+          - 'UNBREAKING:3'
+      '3':
+        Type: 'IRON_BOOTS'
+        Name: '&aScout Shoes'
+        Lore:
+          - '&7'
+          - '&aThis will protect you soldier!'
+          - '&7'
+        Enchantments:
+          - 'PROTECTION:3'
+          - 'UNBREAKING:3'
+
+# Custom golden apple settings.
+GoldenApples:
+  # ALL existing effects will be removed.
+  # they will be replaced with the following ones.
+  # key: EFFECT:LEVEL
+  Effects:
+    - 'SPEED:1'
+    - 'STRENGTH:1'
+    - 'REGENERATION:2'
+  Particles:
+    Type: 'HAPPY_VILLAGER'
+    # Options: Helix, Random or Head (above player head).
+    Formation: 'HELIX'
+  Sound: 'AMBIENT_CAT_MEOW'
+
+# Whilst the game is active these commands will be banned.
+BlockedCommands:
+  - 'spawn'
+  - 'fly'
+  - 'gmc'
+  - 'gms'
+  - 'gamemode survival'
+
+
+
+
