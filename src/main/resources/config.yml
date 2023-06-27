@@ -56,6 +56,7 @@ Messages:
   NextWave: '&cWave %mobarenas_wave% is starting! (%mobarenas_amountofmobs% mobs to kill)'
   PlayerDeath-System: '&c%player% has been slain by %mobtype%.'
   PlayerDeath-User: '&cYOU DIED! &7Now spectating.'
+  Randomly-Teleported: '&aYou have been teleported to the arena.'
   OpenShop: '&aYou have opened the token shop. Current tokens: %mobarenas_tokens%.'
 
 Kits:

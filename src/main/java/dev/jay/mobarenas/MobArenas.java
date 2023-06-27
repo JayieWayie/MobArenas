@@ -1,6 +1,5 @@
 package dev.jay.mobarenas;
 
-import it.unimi.dsi.fastutil.Hash;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashMap;
@@ -14,10 +13,11 @@ public final class MobArenas extends JavaPlugin {
     // Kits, Key is the playername and value is the kit the user has.
     private HashMap<String, String> kits = new HashMap<>();
     // Wave: Key is the wave number, value is the amount of spawns per wave.
-    private HashMap<Integer, Integer> wave = new HashMap<>();
+    public Integer wave = 0;
     // Have key as the wave number and value as mob count. Once mobs are killed
     // remove 1 from mobcount then when it hits 0 the next wave can start the countdown.
     private HashMap<Integer, Integer> mobcount = new HashMap<>();
+    public RTPManager rtp;
 
 
     @Override
@@ -25,6 +25,8 @@ public final class MobArenas extends JavaPlugin {
         // Plugin startup logic
         getConfig().options().copyDefaults();
         saveConfig();
+
+        rtp = new RTPManager(this);
     }
 
     @Override
@@ -32,9 +34,7 @@ public final class MobArenas extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public HashMap<Integer, Integer> getWave(){
-        return wave;
-    }
+
     public HashMap<String, String> getStatus(){
         return status;
     }
@@ -43,5 +43,8 @@ public final class MobArenas extends JavaPlugin {
     }
     public HashMap<String, Integer> getKills(){
         return kills;
+    }
+    public HashMap<Integer, Integer> getMobcount(){
+        return mobcount;
     }
 }
